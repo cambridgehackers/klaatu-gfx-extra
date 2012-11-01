@@ -716,6 +716,7 @@ typedef void           (AL_APIENTRY *LPALDISTANCEMODEL)( ALenum distanceModel );
  #pragma export off
 #endif
 
+extern void console_print( const char *str, ... );
 #if defined(__cplusplus)
 }  /* extern "C" */
 #endif

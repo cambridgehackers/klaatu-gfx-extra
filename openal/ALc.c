@@ -37,6 +37,15 @@
 #include "alDatabuffer.h"
 #include "bs2b.h"
 #include "alu.h"
+void console_print( const char *str, ... )
+{
+    char tmp[ 1024 ] = {""};
+    va_list ap;
+    va_start( ap, str );
+    vsprintf( tmp, str, ap );
+    va_end( ap );
+    __android_log_print( ANDROID_LOG_INFO, "", "%s", tmp );
+}
 
 
 #define EmptyFuncs { NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL }
