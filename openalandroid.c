@@ -24,8 +24,8 @@
 #include <jni.h>
 #include <pthread.h>
 #include "alMain.h"
-#include "al.h"
-#include "alc.h"
+#include "AL/al.h"
+#include "AL/alc.h"
 #include "klaatu_api.h"
 
 static const ALCchar android_device[] = "Android Default";
@@ -146,4 +146,14 @@ void alc_android_probe(int type)
     {
         AppendAllDeviceList(android_device);
     }
+}
+
+void console_print( const char *str, ... )
+{
+    char tmp[ 1024 ] = {""};
+    va_list ap;
+    va_start( ap, str );
+    vsprintf( tmp, str, ap );
+    va_end( ap );
+    __android_log_print( ANDROID_LOG_INFO, "", "%s", tmp );
 }
